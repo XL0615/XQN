@@ -1,0 +1,103 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!--视频播放器-->
+<!--<embed src="MP4/2.MP4"; autostart='true' loop="true" width="300" height="250" > </embed>-->
+<head>
+	<title>My Love</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url("digital-7_mono.ttf"/*tpa=loveme/digital-7_mono.ttf*/) format("truetype");
+		}
+		a { text-decoration: none }
+	</style>
+	<link   href="mvc/css/default.css" tppabs="loveme/mvc/css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="mvc/js/jquery.js" tppabs="loveme/mvc/js/jquery.js"></script>
+	<script type="text/javascript" src="mvc/js/garden.js" tppabs="loveme/mvc/js/garden.js"></script>
+    <script type="text/javascript" src="mvc/js/functions.js" tppabs="loveme/mvc/js/functions.js"></script>
+</head>
+
+<body >
+	<div id="mainDiv">
+		<div id="content">
+		<!--文本位置-->
+			<div id="code">
+				<p>
+				<span class="comments"><span class="keyword">小青柠</span>,你听我说：</span><br />
+				<span class="placeholder"/><span class="comments">我是个平常的人，我不能盼望在人海里值得你一转眼的注意</span><br />
+				<span class="comments">初次认识你，你的声音一下子就吸引了我</span><br />
+				<span class="comments">慢慢的</span><br />
+				<span class="comments">我每天很晚才睡</span><br />
+				<span class="comments">想和你聊天</span><br />
+				<span class="comments">我的一瓣瓣的思想都染着你 </span><br/>
+				<span class="comments">在醒时</span><br/>
+				<span class="comments">在梦里</span> <br/>
+				<span class="comments">想躲也躲不去</span><br />
+				<span class="comments">我抬头望，蓝天里有你</span><br />
+				<span class="comments">我开口唱，悠扬里有你</span><br />
+				<span class="comments">我要遗忘，我向远处跑，另走一道，又碰到了你</span><br />
+				<span class="comments">我的生活本像一杯白开水</span> <br />
+				<span class="comments">但是你的出现，像是在里面偷偷加了一颗糖，很甜~</span> <br />
+				<span class="comments">一岁一礼，一寸欢喜</span> <br />
+
+	          </p>
+			</div>
+			<!--爱心位置-->
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+							小青柠，我们认识那么久
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+					偏爱与例外！
+					<br/>
+						<div class="signature">---小包子 </div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<!--时间 位置-->
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2022, 6, 15);
+		together.setHours(23);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		<!--浏览器限制-->
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "浏览器版本不支持，网页的最低配置<br/>推荐使用 IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				adjustWordsPosition();
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+	<!--音乐播放器，隐藏播放-->
+<embed src="mvc/MP3/1.MP3" loop="-1" width="100px" height="20px" hidden="true" autostart="true"></embed>
+</body>
+</html>
